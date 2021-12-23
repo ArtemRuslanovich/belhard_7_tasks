@@ -16,3 +16,22 @@
     random.randint(-n, n)
 - метод print_seq, который выводит последовательность на экран
 """
+import random
+
+
+class RandSequence:
+    sequence = list
+    n = int
+
+    def __init__(self, n):
+        self.n = n
+        self.generate()
+
+    def generate(self, n=None):
+        if n is None:
+            n = self.n
+        self.sequence = [random.randint(-n, n) for _ in range(n)]
+
+    @classmethod
+    def print_seq(cls):
+        print(cls.sequence)
