@@ -19,3 +19,46 @@
 
 Вывести студентов, у которых средний балл больше 5
 """
+
+
+class Student:
+    surname = str
+    name = str
+    group = int
+    average_score = int
+    a = []
+
+    def __init__(self, surname, name, group, average_score):
+        self.surname = surname
+        self.name = name
+        self.group = group
+        self.average_score = average_score
+        self.a.append(self)
+
+    def __eq__(self, other):
+        return self.average_score == other
+
+    def __ne__(self, other):
+        return self.average_score != other
+
+    def __lt__(self, other):
+        return self.average_score < other
+
+    def __gt__(self, other):
+        return self.average_score > other
+
+    def __le__(self, other):
+        return self.average_score <= other
+
+    def __ge__(self, other):
+        return self.average_score >= other
+
+    @classmethod
+    def srt(cls, a):
+        print(sorted(a, key=cls.average_score))
+        print(sorted(a, key=cls.average_score, reverse=True))
+
+    @classmethod
+    def print_me(cls, average_score, a):
+        if average_score > 5:
+            print(a)
